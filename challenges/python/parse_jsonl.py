@@ -1,4 +1,10 @@
 import json
+from pathlib import Path
+
+## Load the data from the JSONL file
+DATA_PATH = Path(__file__).resolve().parent / "data.jsonl"
+with DATA_PATH.open("r", encoding="utf-8") as data_file:
+    DATA = [json.loads(line) for line in data_file if line.strip()]
 
 
 def parse_jsonl(file_path):
@@ -10,19 +16,6 @@ def parse_jsonl(file_path):
     
     Returns:
         List of dictionaries
-    """
-    pass
-
-
-def calculate_average_salary(data):
-    """
-    Calculate the average salary from the data.
-    
-    Args:
-        data: List of dictionaries with 'salary' key
-    
-    Returns:
-        Average salary as a float
     """
     pass
 
@@ -52,16 +45,3 @@ def count_by_city(data):
     """
     pass
 
-
-def find_people_over_age(data, min_age):
-    """
-    Find all people older than the specified age.
-    
-    Args:
-        data: List of dictionaries with 'age' key
-        min_age: Minimum age (exclusive)
-    
-    Returns:
-        List of dictionaries for people older than min_age
-    """
-    pass
